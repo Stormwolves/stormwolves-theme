@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} | {{ article.title|striptags }}{% endblock %}
+{% block section_title %}{{ article.title }}{% endblock %}
+{% block meta_description %}{{ article.summary|striptags }}{% endblock %}
+{% block meta_keywords %}{{ article.tags|join(',') }}{% endblock %}
+{% block content %}
+<article>
+    <footer>
+        {{ article.locale_date }}
+    </footer>
+    <div class="content">
+        {{ article.content }}
+    </div>
+</article>
+{% endblock %}
+

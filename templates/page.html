@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ SITENAME }} | {{ category|title }}{{ tag|title }}{% endblock %}
+{% block meta_description %}Blog posts related to {{ category }}{{ tag }}{% endblock %}
+{% block meta_keywords %}{{ category }}{{ tag }}{% endblock %}
+
+{% block content %}
+<section id="title" class="emerald">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <h1>{{ page.title }}</h1>
+	{% if page.summary|string != '' %}
+        <p>{{ page.summary }}</p>
+	{% endif %}
+      </div>
+      <div class="col-sm-6">
+        <ul class="breadcrumb pull-right">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="#">Pages</a></li>
+          <li class="active">{{ page.title }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="privacy-policy" class="container">
+  {{ page.content }}
+</section>
+{% endblock %}

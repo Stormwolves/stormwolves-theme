@@ -1,0 +1,32 @@
+<div class="navbar-header">
+  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+    <span class="sr-only">Toggle navigation</span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+    <span class="icon-bar"></span>
+  </button>
+  <a class="navbar-brand" href="{{ SITEURL }}/index.html"><img src="{{ SITEURL }}/theme/images/logo.png" alt="logo"></a>
+</div>
+<div class="collapse navbar-collapse">
+  <ul class="nav navbar-nav navbar-right">
+    {% for title, uri in MENUITEMS %}
+    <li><a href="{{ uri }}">{{ title }}</a></li>
+    {% endfor %}
+    <!--
+    {% for cat, _ in categories %}
+    {% if cat|string() != "Carousel" %}
+    <li{% if cat == category %} class="active"{% endif %}>
+      <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a>
+    </li>
+    {% endif %}
+    {% endfor %}
+    -->
+    {% if DISPLAY_PAGES_ON_MENU %}
+      {% for p in pages|sort(attribute='filename') %}
+        <li{% if page and p.title == page.title %} class="active"{% endif %}>
+          <a{% if not page or not p.title == page.title %} class="stamp"{% endif %} href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a>
+	</li>
+      {% endfor %}
+	{% endif %}
+  </ul>
+</div>

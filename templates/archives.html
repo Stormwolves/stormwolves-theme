@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} &mdash; Archives{% endblock %}
+{% block content_title %}
+<div class="page-title">
+  <h2>Archives for <span>{{ SITENAME }}</span> &hellip;</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="title" class="emerald">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+	<h1>Archives for <span>{{ SITENAME }}</span> &hellip;</h1>
+      </div>
+      <div class="col-sm-6">
+        <ul class="breadcrumb pull-right">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="#">Pages</a></li>
+          <li class="active">Archives</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="blog" class="container">
+  <div class="row">
+    <aside class="col-sm-4 col-sm-push-8">
+      <div class="widget search">
+        <form role="form" action="/search.html">
+          <div class="input-group">
+            <input type="text" name="q" class="form-control" autocomplete="off" placeholder="Search">
+            <span class="input-group-btn">
+              <button class="btn btn-danger" type="button"><i class="icon-search"></i></button>
+            </span>
+          </div>
+        </form>
+      </div><!--/.search-->
+
+      <div class="widget ads">
+        <div class="row">
+          <div class="col-xs-6">
+            <a href="#"><img class="img-responsive img-rounded" src="images/ads/ad1.png" alt=""></a>
+	    <p>Some stuff here</p>
+          </div>
+
+          <div class="col-xs-6">
+            <a href="#"><img class="img-responsive img-rounded" src="images/ads/ad2.png" alt=""></a>
+	    <p>Some stuff here</p>
+          </div>
+        </div>
+        <p> </p>
+        <div class="row">
+          <div class="col-xs-6">
+            <a href="#"><img class="img-responsive img-rounded" src="images/ads/ad3.png" alt=""></a>
+	    <p>Some stuff here</p>
+          </div>
+
+          <div class="col-xs-6">
+            <a href="#"><img class="img-responsive img-rounded" src="images/ads/ad4.png" alt=""></a>
+	    <p>Some stuff here</p>
+          </div>
+        </div>
+      </div><!--/.ads-->     
+
+      <div class="widget categories">
+        <h3>Blog Categories</h3>
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="arrow">
+              <li><a href="#">Development</a></li>
+              <li><a href="#">Design</a></li>
+              <li><a href="#">Updates</a></li>
+              <li><a href="#">Tutorial</a></li>
+              <li><a href="#">News</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6">
+            <ul class="arrow">
+              <li><a href="#">Joomla</a></li>
+              <li><a href="#">Wordpress</a></li>
+              <li><a href="#">Drupal</a></li>
+              <li><a href="#">Magento</a></li>
+              <li><a href="#">Bootstrap</a></li>
+            </ul>
+          </div>
+        </div>                     
+      </div><!--/.categories-->
+
+      <div class="widget facebook-fanpage">
+        <h3>Facebook Fanpage</h3>
+        <div class="widget-content">
+          <div class="fb-like-box" data-href="https://www.facebook.com/shapebootstrap" data-width="292" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+        </div>
+      </div>
+    </aside>        
+    <div class="col-sm-8 col-sm-pull-4">
+      <div class="blog">
+	{% for article in dates_page.object_list %}
+        <div class="blog-item">
+          <img class="img-responsive img-blog" src="{{ SITEURL }}/images/blog1.jpg" width="100%" alt="" />
+          <div class="blog-content">
+            <a href="blog-item.html"><h3>{{ article.title }}</h3></a>
+            <div class="entry-meta">
+              <span><i class="icon-folder-close"></i> Games</a></span>
+              <span><i class="icon-calendar"></i> {{ article.locale_date }}</span>
+            </div>
+            <p>{{ article.summary }}</p>
+            <a class="btn btn-default" href="{{ SITEURL }}/{{ article.save_as }}">Read More <i class="icon-angle-right"></i></a>
+          </div>
+        </div><!--/.blog-item-->
+      {% endfor %}
+
+<ul class="pagination pagination-lg">
+    {% if articles_page.has_previous() %}
+    <li>
+      <a href="{{ SITEURL}}/{{ page_name}}.html"><i class="icon-double-angle-left"></i></a>
+    </li>
+    <li>
+        {% if articles_page.previous_page_number() == 1 %}
+          <a href="{{ SITEURL }}/{{ page_name }}.html#pages"><i class="icon-angle-left"></i></a>
+        {% else %}
+          <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.previous_page_number() }}.html#pages"><i class="icon-angle-left"></i></a>
+        {% endif %}
+    </li>
+    {% endif %}
+    {% set all_pages = dates|length / articles_page.paginator.per_page %}
+    {% set sp_page = articles_page.number %}
+    {% set ep_page = sp_page + 5 %}
+    {% if ep_page > all_pages %}
+      {% set ep_page = all_pages|int + 1 %}
+    {% endif %}
+      {% for idx in range(sp_page, ep_page) %}
+        {% set p_idx = idx|int > 1 and idx|string or '' %}   
+        <li><a href="{{ SITEURL }}/{{ page_name }}{{ p_idx }}.html">{{ idx }}</a></li>
+      {% endfor %}
+    {% if articles_page.has_next() %}
+    <li>
+      <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html#pages" ><i class="icon-angle-right"></i></a>
+    </li>
+    <li>
+      <a href="{{ SITEURL}}/{{ page_name}}{{ all_pages|int }}.html"><i class="icon-double-angle-right"></i></a>
+    </li>    
+    {% endif %}
+</ul><!--/.pagination-->
+<a name="pages">
+</div>
+</div><!--/.col-md-8-->
+</div><!--/.row-->
+</section><!--/#blog-->
+{% endblock %}

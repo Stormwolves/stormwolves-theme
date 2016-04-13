@@ -1,0 +1,55 @@
+{% if SCANNER.slider|length > 0 %}
+<section id="main-slider" class="no-margin">
+  <div class="carousel slide wet-asphalt">
+    <ol class="carousel-indicators">
+      {% set idx = 0 %}
+      {% for a in SCANNER.slider %}
+      <li data-target="#main-slider" data-slide-to="{{ idx }} " {% if idx == 0 %} class="active" {% endif %}></li>
+      {% set idx = idx + 1 %}
+      {% endfor %}
+    </ol>
+    <div class="carousel-inner">
+      {% set idx = 0 %}
+      {% for a in SCANNER.slider %}
+      {% if idx|int() == 0 %}
+      <div class="item active" style="background-image: url({{ SITEURL }}/theme/images/slider/{{ a.background }})">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="carousel-content centered">
+                <h2 class="animation animated-item-1">{{ a.title }}</h2>
+                <div class="animation animated-item-2">{{ a.content }}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--/.item-->
+      {% set idx = idx + 1 %}
+      {% else %}
+      <div class="item" style="background-image: url({{ SITEURL }}/theme/images/slider/{{ a.background }})">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="carousel-content center centered">
+                <div class="boxed animation animated-item-1"><h2>{{ a.title }}</h2></div>
+                <div class="boxed animation animated-item-2">{{ a.content }}</div>
+                <div><a class="btn btn-md animation animated-item-3" href="#">Learn More</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div><!--/.item-->
+      {% set idx = idx + 1 %}
+      {% endif %}
+      {% endfor %}
+    </div><!--/.carousel-inner-->
+  </div><!--/.carousel-->
+  <a class="prev hidden-xs" href="#main-slider" data-slide="prev">
+    <i class="icon-angle-left"></i>
+  </a>
+  <a class="next hidden-xs" href="#main-slider" data-slide="next">
+    <i class="icon-angle-right"></i>
+  </a>
+</section><!--/#main-slider-->
+{% endif %}
+

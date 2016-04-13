@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Search - {{ SITENAME|striptags }}
+{% endblock title %}
+{% block content %}
+<script type="text/javascript" src="{{ SITEURL }}/theme/js/jquery.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
+
+<section id="content" class="container">
+  <form role="form" action="/search.html">
+    <div class="input-group">
+      <input type="text" name="q" id="tipue_search_input" class="form-control" autocomplete="off" placeholder="Search" required>
+      <span class="input-group-btn">
+        <button class="btn btn-danger" type="button"><i class="icon-search"></i></button>
+      </span>
+    </div>
+  </form>
+  <div id="tipue_search_content"></div>
+</section>
+
+<script>
+  var $j = jQuery.noConflict();
+  $j(document).ready(function() {
+    $j('#tipue_search_input').tipuesearch({
+      'show': 10,
+      'mode': 'json',
+      'showURL': false,
+      'contentLocation': '{{ SITEURL }}/tipuesearch_content.json'
+    });
+  });
+</script>
+{% endblock content %}

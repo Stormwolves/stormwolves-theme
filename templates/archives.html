@@ -62,7 +62,7 @@
 	    <p>Some stuff here</p>
           </div>
         </div>
-      </div><!--/.ads-->     
+      </div><!--/.ads-->
 
       <div class="widget categories">
         <h3>Blog Categories</h3>
@@ -85,7 +85,7 @@
               <li><a href="#">Bootstrap</a></li>
             </ul>
           </div>
-        </div>                     
+        </div>
       </div><!--/.categories-->
 
       <div class="widget facebook-fanpage">
@@ -94,7 +94,7 @@
           <div class="fb-like-box" data-href="https://www.facebook.com/shapebootstrap" data-width="292" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
         </div>
       </div>
-    </aside>        
+    </aside>
     <div class="col-sm-8 col-sm-pull-4">
       <div class="blog">
 	{% for article in dates_page.object_list %}
@@ -106,7 +106,7 @@
               <span><i class="icon-folder-close"></i> Games</a></span>
               <span><i class="icon-calendar"></i> {{ article.locale_date }}</span>
             </div>
-            <p>{{ article.summary }}</p>
+            <p>{{ article.lead }}</p>
             <a class="btn btn-default" href="{{ SITEURL }}/{{ article.save_as }}">Read More <i class="icon-angle-right"></i></a>
           </div>
         </div><!--/.blog-item-->

@@ -31,6 +31,11 @@
         <div class="col-sm-12">
             <div class="blog">
                 <div class="blog-item">
+                    {% if article.photo_image %}
+                    <img class="img-responsive img-blog"
+                         src="{{ SITEURL }}/{{ article.photo_image[1] }}"
+                         width="100%" alt="" />
+                    {% endif %}
                     <div class="blog-content">
                         <a href="{{ SITEURL }}/{{ article.save_as }}"><h3>{{ article.title }}</h3></a>
                         <div class="entry-meta">
@@ -38,7 +43,7 @@
                             <span><i class="icon-calendar"></i> {{ article.locale_date }}</span>
                         </div>
                         <p>{{ article.lead }}</p>
-                        <a class="btn btn-default" href="{{ SITEURL }}/{{ article.save_as }}">Read More <i class="icon-angle-right"></i></a>
+                        <a class="btn btn-default" href="{{ SITEURL }}/{{ article.save_as }}">Watch Photos <i class="icon-angle-right"></i></a>
                     </div>
                 </div>
             </div>

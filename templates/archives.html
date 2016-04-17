@@ -92,12 +92,13 @@
     <div class="col-sm-8 col-sm-pull-4">
       <div class="blog">
 	{% for article in dates_page.object_list %}
+        {% if not article.photo_gallery %}
         <div class="blog-item">
           {% if not article.default_image %}
           <img class="img-responsive img-blog" src="{{ SITEURL }}/{{ article.web_path }}" width="100%" alt="" />
           {% endif %}
           <div class="blog-content">
-            <a href="blog-item.html"><h3>{{ article.title }}</h3></a>
+            <a href="{{ SITEURL }}/{{ article.save_as }}"><h3>{{ article.title }}</h3></a>
             <div class="entry-meta">
               <span><i class="icon-folder-close"></i> Games</a></span>
               <span><i class="icon-calendar"></i> {{ article.locale_date }}</span>
@@ -106,6 +107,7 @@
             <a class="btn btn-default" href="{{ SITEURL }}/{{ article.save_as }}">Read More <i class="icon-angle-right"></i></a>
           </div>
         </div><!--/.blog-item-->
+        {% endif %}
       {% endfor %}
 
 <ul class="pagination pagination-lg">

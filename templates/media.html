@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} &mdash; Media{% endblock %}
+{% block content_title %}
+<div class="page-title">
+    <h2>Media</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="title" class="emerald">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h1>Media</h1>
+            </div>
+            <div class="col-sm-6">
+                <ul class="breadcrumb pull-right">
+                    <li><a href="/index.html">Home</a></li>
+                    <li class="active">Media</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="blog" class="container">
+{% for article in dates %}
+{% if article.photo_gallery %}
+<div class="blog-item">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="blog">
+                <div class="blog-item">
+                    <div class="blog-content">
+                        <a href="{{ SITEURL }}/{{ article.save_as }}"><h3>{{ article.title }}</h3></a>
+                        <div class="entry-meta">
+                            <span><i class="icon-folder-close"></i> Games</a></span>
+                            <span><i class="icon-calendar"></i> {{ article.locale_date }}</span>
+                        </div>
+                        <p>{{ article.lead }}</p>
+                        <a class="btn btn-default" href="{{ SITEURL }}/{{ article.save_as }}">Read More <i class="icon-angle-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><!--/.blog-item-->
+{% endif %}
+{% endfor %}
+</section>
+{% endblock %}

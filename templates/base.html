@@ -12,7 +12,12 @@
     <link href="{{ SITEURL }}/theme/css/prettyPhoto.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/css/animate.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/css/main.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/magnific-popup.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+
+    <script src="{{ SITEURL }}/theme/js/jquery.js"></script>
+    <script src="{{ SITEURL }}/theme/js/randquotes.js"></script>
+
     <!--[if lt IE 9]>
 	<script src="{{ SITEURL }}/theme/js/html5shiv.js"></script>
 	<script src="{{ SITEURL }}/theme/js/respond.min.js"></script>
@@ -24,20 +29,7 @@
     <link rel="apple-touch-icon-precomposed" href="{{ SITEURL }}/theme/images/ico/apple-touch-icon-57-precomposed.png">
     {% endblock %}
   </head><!--/head-->
-  <script>
-    function load_quote() {
-      var quotes = [
-        {text: "To ensure perfect aim, shoot first and call whatever you hit the target!"},
-        {text: "If the enemy is in range, so are you."},
-        {text: "Tracers work both ways."},
-        {text: "If it's stupid but works, it isn't stupid."},
-        {text: "When in doubt empty the magazine."},
-      ];
-      var r_quote = Math.floor(Math.random() * quotes.length);
-      $('#slogan').text(quotes[r_quote].text);
-    }
-    </script>
-  <body onload="load_quote();">
+  <body onload="load_quote('#slogan');">
     <header class="navbar navbar-inverse navbar-fixed-top wet-asphalt" role="banner">
       <div class="container">
 	{% include 'nav.html' %}
@@ -60,7 +52,6 @@
 
     {% include 'footer.html' %}
     {% block javascript%}
-    <script src="{{ SITEURL }}/theme/js/jquery.js"></script>
     <script src="{{ SITEURL }}/theme/js/bootstrap.min.js"></script>
     <script src="{{ SITEURL }}/theme/js/jquery.prettyPhoto.js"></script>
     <script src="{{ SITEURL }}/theme/js/main.js"></script>

@@ -1001,6 +1001,40 @@ ul.social > li > a:hover {
 .accordion-inner {
   border-top: 0;
 }
+.btn-gallery {
+  color: #ccc;
+  background-color: #333;
+  border-color: #333;
+}
+.btn-gallery:hover {
+  color: #ddd;
+  background-color: #444;
+  border-color: #444;
+}
+.gallery-item {
+  background-color: #777;
+  color: #fff;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.gallery-item .img-gallery {
+  width: 100%;
+  border-radius: 5px 5px 0 0;
+}
+.gallery-content {
+  padding: 10px 20px 20px 20px;
+}
+.gallery-content a {
+  color: #fff;
+}
+.gallery-content a:hover {
+  color: #ddd;
+}
+.gallery-item .entry-meta {
+  color: #bbb;
+  margin-bottom: 20px;
+}
+
 .blog .blog-item {
   background-color: #fff;
   border-radius: 5px;

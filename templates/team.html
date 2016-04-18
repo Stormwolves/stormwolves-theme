@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} &mdash; Archives{% endblock %}
+{% block content_title %}
+<div class="page-title">
+    <h2><span>{{ SITENAME }}</span> Members</h2>
+</div>
+{% endblock %}
+
+{% block content %}
+<section id="title" class="emerald">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <h1>Team</h1>
+                <p>Members</p>
+            </div>
+            <div class="col-sm-4">
+                <ul class="breadcrumb pull-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Pages</a></li>
+                    <li class="active">Members</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section><!--/#title-->
+
+<section class="container">
+    <h1 class="center">Meet the Team</h1>
+    <p class="lead center">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+    <div class="gap"></div>
+    {% set is_content = 0 %}
+    {% set idx = 0 %}
+    {% for p in pages|sort(attribute='filename') %}
+    {% if p.type|string == 'team' %}
+    {% if idx == 0 %}
+    <div id="meet-the-team" class="row">
+        {% elif idx == 3 %}
+    </div>
+    <div id="meet-the-team" class="row">
+        {% set idx = 0 %}
+        {% endif %}
+        <div class="col-md-4 col-xs-6">
+            <div class="center">
+                <p>
+                    <img class="img-responsive img-thumbnail img-circle" src="{{ SITEURL }}/{{ p.image }}" alt="" >
+                </p>
+                <h5>{{ p.title }} <small class="designation muted">Gunner</small></h5>
+                <p>{{ p.motto }}</p>
+            </div>
+        </div>
+        {% set idx = idx + 1 %}
+        {% set is_content = is_content + 1 %}
+        {% endif %}
+        {% endfor %}
+        {% if is_content > 0 %}
+    </div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1137,3 +1137,8 @@ ul.faq li > div h3 {
   width: 100%;
   height: 100%;
 }
+
+blockquote {
+  font-style: italic;
+  background-color: #eee;
+}

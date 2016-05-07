@@ -43,7 +43,7 @@ h6 {
   font-weight: 400;
 }
 a {
-  color: #333;
+  color: #E35900;
   -webkit-transition: 300ms;
   -moz-transition: 300ms;
   -o-transition: 300ms;
@@ -630,6 +630,11 @@ body > section {
   display: block;
   font-size: 13px;
 }
+
+div#meet-the-team {
+  margin-top: 50px;
+}
+
 .img-thumbnail {
   border: 0;
 }
@@ -1141,4 +1146,13 @@ ul.faq li > div h3 {
 blockquote {
   font-style: italic;
   background-color: #eee;
+}
+
+.article-image-container {
+  padding: 10px 0 10px 0;
+}
+
+.article-image {
+  max-width: 100%;
+  width: 100%;
 }

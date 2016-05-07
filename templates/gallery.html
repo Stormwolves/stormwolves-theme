@@ -64,10 +64,9 @@
                         <hr>
                         <div class="tags">
                             <i class="icon-tags"></i> Tags
-                            <a class="btn btn-xs btn-primary" href="#">CSS3</a>
-                            <a class="btn btn-xs btn-primary" href="#">HTML5</a>
-                            <a class="btn btn-xs btn-primary" href="#">WordPress</a>
-                            <a class="btn btn-xs btn-primary" href="#">Joomla</a>
+                            {% for a_tag in article.tags %}
+                            <a class="btn btn-xs btn-primary" href="#{{ a_tag }}">{{ a_tag }}</a>
+                            {% endfor %}
                         </div>
                     </div>
                 </div><!--/.blog-item-->

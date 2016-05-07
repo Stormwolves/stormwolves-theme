@@ -6,7 +6,6 @@
           </div>
           <div class="col-sm-6">
               <ul class="pull-right">
-                  <lh>pages</lh>
                   {% for p in pages %}
                   {% if p.type|string != 'team' %}
                   <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>

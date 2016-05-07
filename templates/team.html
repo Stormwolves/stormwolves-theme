@@ -26,8 +26,8 @@
 </section><!--/#title-->
 
 <section class="container">
-    <h1 class="center">Meet the Team</h1>
-    <p class="lead center">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+    <h1 class="center">Triff das Team</h1>
+    <p class="lead center">Si vis pacem, para bellum.</p>
     <div class="gap"></div>
     {% set is_content = 0 %}
     {% set idx = 0 %}
@@ -45,7 +45,7 @@
                 <p>
                     <img class="img-responsive img-thumbnail img-circle" src="{{ SITEURL }}/{{ p.image }}" alt="" >
                 </p>
-                <h5>{{ p.title }} <small class="designation muted">Gunner</small></h5>
+                <h5>{{ p.title }} <small class="designation muted">{{ p.designation }}</small></h5>
                 <p>{{ p.motto }}</p>
             </div>
         </div>

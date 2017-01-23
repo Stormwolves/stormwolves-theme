@@ -4,7 +4,7 @@
     <ol class="carousel-indicators">
       {% set idx = 0 %}
       {% for a in SCANNER.slider %}
-      <li data-target="#main-slider" data-slide-to="{{ idx }} " {% if idx == 0 %} class="active" {% endif %}></li>
+      <li data-target="#main-slider" data-slide-to="{{ idx }}" {% if idx == 0 %} class="active" {% endif %}></li>
       {% set idx = idx + 1 %}
       {% endfor %}
     </ol>

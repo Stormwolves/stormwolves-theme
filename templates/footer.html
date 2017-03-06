@@ -1,20 +1,28 @@
 <footer id="footer" class="midnight-blue">
-    <div class="container">
-      <div class="row">
-          <div class="col-sm-6">
-              <p>{{ COPYRIGHT_LABEL }}</p>
-          </div>
-          <div class="col-sm-6">
-              <ul class="pull-right">
-                  {% for p in pages %}
-                  {% if p.type|string != 'team' %}
-                  <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
-                  {% endif %}
-                  {% endfor %}
-		  <li><a target="_blank" href="https://flarum.stormwolves.info/">Forum</a></li>
-                  <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li><!--#gototop-->
-              </ul>
-          </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+	<p>
+	  <a class="navbar-brand" href="http://www.begadishop.de/">
+	    <img target="_blank" src="{{ SITEURL }}/theme/images/begadi_logo.png" alt="www.begadi.de">
+	  </a>
+	</p>
+      </div>
+      <div class="col-sm-6">
+        <ul class="pull-right">
+          {% for p in pages %}
+          {% if p.type|string != 'team' %}
+          <li><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+          {% endif %}
+          {% endfor %}
+	  <li><a target="_blank" href="https://flarum.stormwolves.info/">Forum</a></li>
+          <li><a id="gototop" class="gototop" href="#"><i class="icon-chevron-up"></i></a></li><!--#gototop-->
+        </ul>
+	<ul class="pull-right">
+	  <br/>
+          <p>{{ COPYRIGHT_LABEL }}</p>
+	</ul>
       </div>
     </div>
+  </div>
 </footer><!--/#footer-->
